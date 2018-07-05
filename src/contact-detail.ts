@@ -1,7 +1,7 @@
 import {inject} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {WebAPI} from './web-api';
-import {ContactUpdated,ContactViewed} from './messages';
+import {ContactUpdated,ContactLoaded} from './messages';
 import {areEqual} from './utility';
 
 interface Contact {
@@ -25,7 +25,7 @@ export class ContactDetail {
       this.contact = <Contact>contact;
       this.routeConfig.navModel.setTitle(this.contact.firstName);
       this.originalContact = JSON.parse(JSON.stringify(this.contact));
-      this.ea.publish(new ContactViewed(this.contact));
+      this.ea.publish(new ContactLoaded(this.contact));
     });
   }
 
@@ -47,7 +47,7 @@ export class ContactDetail {
       let result = confirm('You have unsaved changes. Are you sure you wish to leave?');
 
     if(!result) {
-      this.ea.publish(new ContactViewed(this.contact));
+      this.ea.publish(new ContactLoaded(this.contact));
     }
 
       return result;

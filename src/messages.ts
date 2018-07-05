@@ -2,6 +2,6 @@ export class ContactUpdated {
   constructor(public contact) { }
 }
 
-export class ContactViewed {
+export class ContactLoaded {
   constructor(public contact) { }
 }
