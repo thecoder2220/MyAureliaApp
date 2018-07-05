@@ -1,21 +1,16 @@
-import {Todo} from './todo';
+import {Router, RouterConfiguration} from 'aurelia-router';
+import {PLATFORM} from 'aurelia-pal';
 
 export class App {
-    heading = "Todos";
-    todos: Todo[] = [];
-    todoDescription = '';
+  router: Router;
 
-    addTodo() {
-        if (this.todoDescription) {
-            this.todos.push(new Todo(this.todoDescription));
-            this.todoDescription = '';
-        }
-    }
+  configureRouter(config: RouterConfiguration, router: Router){
+    config.title = 'Contacts';
+    config.map([
+      { route: '',              moduleId: PLATFORM.moduleName('no-selection'),   title: 'Select' },
+      { route: 'contacts/:id',  moduleId: PLATFORM.moduleName('contact-detail'), name:'contacts' }
+    ]);
 
-    removeTodo(todo) {
-        let index = this.todos.indexOf(todo);
-        if (index !== -1) {
-            this.todos.splice(index, 1);
-        }
-    }
+    this.router = router;
+  }
 }
