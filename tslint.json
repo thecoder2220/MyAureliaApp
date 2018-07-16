@@ -1,5 +1,27 @@
 {
+  "extends": "tslint:recommended",
   "rules": {
-
+    "quotemark": [
+      true,
+      "single",
+      "double"
+    ],
+    "object-literal-sort-keys": false,
+    "ordered-imports": [
+      false
+    ],
+    "arrow-parens": false,
+    "no-shadowed-variable": false,
+    "max-line-length": false,
+    "whitespace": false,
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "no-string-literal": false,
+    "trailing-comma": false,
+    "member-ordering": [
+      "fields-first"
+    ]
   }
 }
