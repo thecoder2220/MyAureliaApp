@@ -40,6 +40,20 @@ let contacts = [
     lastName:'Green',
     email:'green@inklings.com',
     phoneNumber:'867-5309'
+  },
+  {
+    id:getId(),
+    firstName:'Charles 2',
+    lastName:'Williams 2',
+    email:'williams2@inklings.com',
+    phoneNumber:'867-5309'
+  },
+  {
+    id:getId(),
+    firstName:'Roger 2',
+    lastName:'Green 2',
+    email:'green2@inklings.com',
+    phoneNumber:'867-5309'
   }
 ];
 
