@@ -1,103 +1,105 @@
-let latency = 200;
+const latency = 200;
 let id = 0;
 
-function getId(){
+function getId() {
   return ++id;
 }
 
-let contacts = [
+const contacts = [
   {
-    id:getId(),
-    firstName:'John',
-    lastName:'Tolkien',
-    email:'tolkien@inklings.com',
-    phoneNumber:'867-5309'
+    id: getId(),
+    firstName: 'John',
+    lastName: 'Tolkien',
+    email: 'tolkien@inklings.com',
+    phoneNumber: '867-5309'
   },
   {
-    id:getId(),
-    firstName:'Clive',
-    lastName:'Lewis',
-    email:'lewis@inklings.com',
-    phoneNumber:'867-5309'
+    id: getId(),
+    firstName: 'Clive',
+    lastName: 'Lewis',
+    email: 'lewis@inklings.com',
+    phoneNumber: '867-5309'
   },
   {
-    id:getId(),
-    firstName:'Owen',
-    lastName:'Barfield',
-    email:'barfield@inklings.com',
-    phoneNumber:'867-5309'
+    id: getId(),
+    firstName: 'Owen',
+    lastName: 'Barfield',
+    email: 'barfield@inklings.com',
+    phoneNumber: '867-5309'
   },
   {
-    id:getId(),
-    firstName:'Charles',
-    lastName:'Williams',
-    email:'williams@inklings.com',
-    phoneNumber:'867-5309'
+    id: getId(),
+    firstName: 'Charles',
+    lastName: 'Williams',
+    email: 'williams@inklings.com',
+    phoneNumber: '867-5309'
   },
   {
-    id:getId(),
-    firstName:'Roger',
-    lastName:'Green',
-    email:'green@inklings.com',
-    phoneNumber:'867-5309'
+    id: getId(),
+    firstName: 'Roger',
+    lastName: 'Green',
+    email: 'green@inklings.com',
+    phoneNumber: '867-5309'
   },
   {
-    id:getId(),
-    firstName:'John 2',
-    lastName:'Tolkien 2',
-    email:'tolkien@inklings.com',
-    phoneNumber:'867-5309'
+    id: getId(),
+    firstName: 'John 2',
+    lastName: 'Tolkien 2',
+    email: 'tolkien@inklings.com',
+    phoneNumber: '867-5309'
   },
   {
-    id:getId(),
-    firstName:'Clive 2',
-    lastName:'Lewis 2',
-    email:'lewis@inklings.com',
-    phoneNumber:'867-5309'
+    id: getId(),
+    firstName: 'Clive 2',
+    lastName: 'Lewis 2',
+    email: 'lewis@inklings.com',
+    phoneNumber: '867-5309'
   }
 ];
 
 export class WebAPI {
-  isRequesting = false;
-  
-  getContactList(){
+  public isRequesting = false;
+
+  public  getContactList() {
     this.isRequesting = true;
     return new Promise(resolve => {
       setTimeout(() => {
-        let results = contacts.map(x =>  { return {
-          id:x.id,
-          firstName:x.firstName,
-          lastName:x.lastName,
-          email:x.email
-        }});
+        const results = contacts.map(x => {
+          return {
+            id: x.id,
+            firstName: x.firstName,
+            lastName: x.lastName,
+            email: x.email
+          };
+        });
         resolve(results);
         this.isRequesting = false;
       }, latency);
     });
   }
 
-  getContactDetails(id){
+  public  getContactDetails(id) {
     this.isRequesting = true;
     return new Promise(resolve => {
       setTimeout(() => {
-        let found = contacts.filter(x => x.id == id)[0];
+        const found = contacts.filter(x => x.id === id)[0];
         resolve(JSON.parse(JSON.stringify(found)));
         this.isRequesting = false;
       }, latency);
     });
   }
 
-  saveContact(contact){
+  public  saveContact(contact) {
     this.isRequesting = true;
     return new Promise(resolve => {
       setTimeout(() => {
-        let instance = JSON.parse(JSON.stringify(contact));
-        let found = contacts.filter(x => x.id == contact.id)[0];
+        const instance = JSON.parse(JSON.stringify(contact));
+        const found = contacts.filter(x => x.id === contact.id)[0];
 
-        if(found){
-          let index = contacts.indexOf(found);
+        if (found) {
+          const index = contacts.indexOf(found);
           contacts[index] = instance;
-        }else{
+        } else {
           instance.id = getId();
           contacts.push(instance);
         }
