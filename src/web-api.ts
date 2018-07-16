@@ -70,7 +70,7 @@ export class WebAPI {
             firstName: x.firstName,
             lastName: x.lastName,
             email: x.email
-          };
+          }
         });
         resolve(results);
         this.isRequesting = false;
@@ -82,7 +82,7 @@ export class WebAPI {
     this.isRequesting = true;
     return new Promise(resolve => {
       setTimeout(() => {
-        const found = contacts.filter(x => x.id === id)[0];
+        const found = contacts.filter(x => x.id == id)[0];
         resolve(JSON.parse(JSON.stringify(found)));
         this.isRequesting = false;
       }, latency);
@@ -94,7 +94,7 @@ export class WebAPI {
     return new Promise(resolve => {
       setTimeout(() => {
         const instance = JSON.parse(JSON.stringify(contact));
-        const found = contacts.filter(x => x.id === contact.id)[0];
+        const found = contacts.filter(x => x.id == contact.id)[0];
 
         if (found) {
           const index = contacts.indexOf(found);

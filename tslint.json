@@ -22,6 +22,8 @@
     "trailing-comma": false,
     "member-ordering": [
       "fields-first"
-    ]
+    ],
+    "triple-equals": false,
+    "semicolon": false
   }
 }
