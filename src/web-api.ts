@@ -43,9 +43,9 @@ let contacts = [
   },
   {
     id:getId(),
-    firstName:'Charles 2',
-    lastName:'Williams 2',
-    email:'williams2@inklings.com',
+    firstName:'Charles 3',
+    lastName:'Williams 3',
+    email:'williams3@inklings.com',
     phoneNumber:'867-5309'
   },
   {
