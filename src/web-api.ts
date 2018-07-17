@@ -83,6 +83,7 @@ export class WebAPI {
     return new Promise(resolve => {
       setTimeout(() => {
         const found = contacts.filter(x => x.id == id)[0];
+        console.log('found='+found);
         resolve(JSON.parse(JSON.stringify(found)));
         this.isRequesting = false;
       }, latency);
