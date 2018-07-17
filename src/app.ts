@@ -13,7 +13,8 @@ export class App {
     config.map([
       { route: '',              moduleId: PLATFORM.moduleName('no-selection'),   title: 'Select' },
       { route: 'contacts/:id',  moduleId: PLATFORM.moduleName('contact-detail'), name:'contacts' },
-      { route: 'contacts-datatable',  moduleId: PLATFORM.moduleName('contact-datatable'), name:'contacts-datatable' }
+      { route: 'contacts-datatable',  moduleId: PLATFORM.moduleName('contact-datatable'), name:'contacts-datatable' },
+      {route: 'home', moduleId: PLATFORM.moduleName('components/home/home-component'), name: 'home', title: 'Home'}
     ]);
 
     this.router = router;
@@ -21,6 +22,6 @@ export class App {
 
   gotoContactDataTablePage() {
     console.log('gotoContactDataTablePage activée')
-    location.assign('#/contacts-datatable');
+    location.assign('#/home');
   }
 }
