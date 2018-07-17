@@ -11,8 +11,8 @@ export class ContactList {
   constructor(private api: WebAPI, ea: EventAggregator) {
     ea.subscribe(ContactLoaded, msg => this.select(msg.contact));
     ea.subscribe(ContactUpdated, msg => {
-      let id = msg.contact.id;
-      let found = this.contacts.find(x => x.id == id);
+      const id = msg.contact.id;
+      const found = this.contacts.find(x => x.id == id);
       Object.assign(found, msg.contact);
     });
   }
