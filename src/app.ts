@@ -6,14 +6,15 @@ import {WebAPI} from './web-api';
 export class App {
   router: Router;
 
-  constructor(public api: WebAPI) {}
+  constructor(public api: WebAPI) {
+  }
 
-  configureRouter(config: RouterConfiguration, router: Router){
+  configureRouter(config: RouterConfiguration, router: Router) {
     config.title = 'Contacts';
     config.map([
-      { route: '',              moduleId: PLATFORM.moduleName('no-selection'),   title: 'Select' },
-      { route: 'contacts/:id',  moduleId: PLATFORM.moduleName('contact-detail'), name:'contacts' },
-      { route: 'contacts-datatable',  moduleId: PLATFORM.moduleName('contact-datatable'), name:'contacts-datatable' },
+      {route: '', moduleId: PLATFORM.moduleName('no-selection'), title: 'Select'},
+      {route: 'contacts/:id', moduleId: PLATFORM.moduleName('contact-detail'), name: 'contacts'},
+      {route: 'contacts-datatable', moduleId: PLATFORM.moduleName('contact-datatable'), name: 'contacts-datatable'},
       {route: 'home', moduleId: PLATFORM.moduleName('components/home/home-component'), name: 'home', title: 'Home'}
     ]);
 

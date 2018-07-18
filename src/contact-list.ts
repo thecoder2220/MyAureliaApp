@@ -17,7 +17,12 @@ export class ContactList {
     });
   }
 
+  // cette méthode est en fait exécutée
   created() {
+    this.api.getContactList().then(contacts => this.contacts = contacts);
+  }
+
+  getContactList() {
     this.api.getContactList().then(contacts => this.contacts = contacts);
   }
 
