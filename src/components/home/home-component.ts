@@ -42,6 +42,19 @@ export class HomeComponent {
     this.loadAchatsStats();
   };
 
+  gotoFirstPage() {
+    this.currentPage = 1;
+    this.loadAchatsStats();
+  };
+
+  gotoLastPage() {
+    console.log("this.config.totalItems="+ this.config.totalItems)
+    console.log("this.config.pageSize="+ this.config.pageSize)
+    this.currentPage = Math.ceil(this.config.totalItems / this.config.pageSize);
+    console.log("METHODE gotoLastPage - this.currentPage="+this.currentPage);
+    this.loadAchatsStats();
+  };
+
   /* ******************************************************************************************************************** */
   /* ********************************************** Tableau Agrégé/Qualité ********************************************** */
   /* ******************************************************************************************************************** */

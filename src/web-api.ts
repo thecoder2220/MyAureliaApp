@@ -181,6 +181,13 @@ const contacts = [
     email: 'green@inklings.com',
     phoneNumber: '867-5309'
   },
+  {
+    id: getId(),
+    firstName: 'John 6',
+    lastName: 'Tolkien 6',
+    email: 'tolkien@inklings.com',
+    phoneNumber: '867-5309'
+  }
 ];
 
 export class WebAPI {
