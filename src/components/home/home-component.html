@@ -20,7 +20,8 @@
                   <nav aria-label="Page navigation example">
                     <ul class="pagination" style="margin-bottom:0px" if.bind="config.totalItems>0">
                       <li class="page-item">
-                        <a class="page-link" href="#" if.bind="currentPage>1" click.trigger="gotoFirstPage()">|<-</a>
+                        <a class="page-link" href="#" if.bind="currentPage>1" click.trigger="gotoFirstPage()"><i class="fa fa-step-backward" ></i></a>
+
                       </li>
                       <li class="page-item">
                         <a class="page-link" href="#" if.bind="currentPage>1" click.trigger="setPage(-1)">Pr&eacute;c.</a>
@@ -39,10 +40,10 @@
                       </li>
 
                       <li class="page-item">
-                        <a class="page-link" if.bind="currentPage<lastPageNumber" href="#" click.trigger="gotoLastPage()">->|</a>
+                        <a class="page-link" if.bind="currentPage<lastPageNumber" href="#" click.trigger="gotoLastPage()"><i class="fa fa-step-forward" ></i></a>
                       </li>
                       <li class="page-item disabled">
-                        <a class="page-link" if.bind="currentPage>=lastPageNumber" href="#" click.trigger="gotoLastPage()">->|</a>
+                        <a class="page-link" if.bind="currentPage>=lastPageNumber" href="#" click.trigger="gotoLastPage()"><i class="fa fa-step-forward" ></i></a>
                       </li>
                     </ul>
                   </nav>
