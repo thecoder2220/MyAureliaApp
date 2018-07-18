@@ -18,6 +18,7 @@ export class HomeComponent {
     totalItems: 0
   };
   @bindable currentPage = 1;
+  @bindable lastPageNumber = 1;
   @bindable achatsStatsReady = true;
   @bindable achatsStats = [];
   contacts;
@@ -33,6 +34,7 @@ export class HomeComponent {
     this.api.getContactListCount()
       .then(total => {
         this.config.totalItems = total ;
+        this.lastPageNumber = Math.ceil(total / this.config.pageSize);
         this.loadAchatsStats();
       });
   }
@@ -48,9 +50,7 @@ export class HomeComponent {
   };
 
   gotoLastPage() {
-    console.log("this.config.totalItems="+ this.config.totalItems)
-    console.log("this.config.pageSize="+ this.config.pageSize)
-    this.currentPage = Math.ceil(this.config.totalItems / this.config.pageSize);
+    this.currentPage = this.lastPageNumber;
     console.log("METHODE gotoLastPage - this.currentPage="+this.currentPage);
     this.loadAchatsStats();
   };

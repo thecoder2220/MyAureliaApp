@@ -20,10 +20,10 @@
                   <nav aria-label="Page navigation example">
                     <ul class="pagination" style="margin-bottom:0px" if.bind="config.totalItems>0">
                       <li class="page-item">
-                        <a class="page-link" href="#" click.trigger="gotoFirstPage()">|<-</a>
+                        <a class="page-link" href="#" if.bind="currentPage>1" click.trigger="gotoFirstPage()">|<-</a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link" href="#" click.trigger="setPage(-1)">Pr&eacute;c.</a>
+                        <a class="page-link" href="#" if.bind="currentPage>1" click.trigger="setPage(-1)">Pr&eacute;c.</a>
                       </li>
                       <li class="page-item">
                         <a class="page-link" href="#" if.bind="currentPage>1" click.trigger="setPage(-1)">${currentPage-1}</a>
@@ -32,13 +32,17 @@
                         <a class="page-link">${currentPage}</a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link" href="#" click.trigger="setPage(1)">${currentPage + 1}</a>
+                        <a class="page-link" if.bind="currentPage<lastPageNumber" href="#" click.trigger="setPage(1)">${currentPage + 1}</a>
                       </li>
                       <li class="page-item">
-                        <a class="page-link" href="#" click.trigger="setPage(1)">Suiv.</a>
+                        <a class="page-link" if.bind="currentPage<lastPageNumber" href="#" click.trigger="setPage(1)">Suiv.</a>
                       </li>
+
                       <li class="page-item">
-                        <a class="page-link" href="#" click.trigger="gotoLastPage()">->|</a>
+                        <a class="page-link" if.bind="currentPage<lastPageNumber" href="#" click.trigger="gotoLastPage()">->|</a>
+                      </li>
+                      <li class="page-item disabled">
+                        <a class="page-link" if.bind="currentPage>=lastPageNumber" href="#" click.trigger="gotoLastPage()">->|</a>
                       </li>
                     </ul>
                   </nav>
