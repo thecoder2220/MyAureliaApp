@@ -39,6 +39,7 @@ export class HomeComponent {
 
   setPage(num) {
     if (this.currentPage + num >= 1) this.currentPage += num;
+    this.loadAchatsStats();
   };
 
   /* ******************************************************************************************************************** */
@@ -46,15 +47,19 @@ export class HomeComponent {
   /* ******************************************************************************************************************** */
 
   loadAchatsStats() {
-    this.achatsStats = [];
+    console.log("currentPage="+ this.currentPage)
+    let currentPageMoinsUn=this.currentPage-1;
+    console.log("currentPage-1="+ currentPageMoinsUn)
+    let debutIndex= currentPageMoinsUn*(this.config.pageSize);
+    console.log("debutIndex="+debutIndex);
+    let finIndex=this.currentPage*this.config.pageSize;
+
+    console.log("finIndex="+ finIndex);
+    this.achatsStats = this.contacts.slice((this.currentPage-1)*(this.config.pageSize), this.currentPage*this.config.pageSize);
+
+  //  algo = ${((currentPage-1)*pageSize+1)} - ${currentPage*pageSize} of ${totalItems}
+
     this.achatsStatsReady = false;
-    var i,  chunk = 5;
-    var temparray = this.contacts;
-    var j = this.config.totalItems;
-    for (i = 0; i < j; i += chunk) {
-      temparray = this.contacts.slice(i, i + chunk);
-      console.log(temparray);
-    }
   };
 
   currentPageChanged(newValue, oldValue) {

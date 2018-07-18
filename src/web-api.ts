@@ -57,6 +57,27 @@ const contacts = [
   },
   {
     id: getId(),
+    firstName: 'Owen 2',
+    lastName: 'Barfield 2',
+    email: 'barfield@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'Charles 2',
+    lastName: 'Williams 2',
+    email: 'williams@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'Roger 2',
+    lastName: 'Green 2',
+    email: 'green@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
     firstName: 'John 3 ',
     lastName: 'Tolkien 3',
     email: 'tolkien@inklings.com',
