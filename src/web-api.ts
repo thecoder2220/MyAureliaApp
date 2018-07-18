@@ -54,7 +54,112 @@ const contacts = [
     lastName: 'Lewis 2',
     email: 'lewis@inklings.com',
     phoneNumber: '867-5309'
-  }
+  },
+  {
+    id: getId(),
+    firstName: 'John 3 ',
+    lastName: 'Tolkien 3',
+    email: 'tolkien@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'Clive 3',
+    lastName: 'Lewis 3',
+    email: 'lewis@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'Owen 3',
+    lastName: 'Barfield 3',
+    email: 'barfield@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'Charles 3',
+    lastName: 'Williams 3',
+    email: 'williams@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'Roger 3',
+    lastName: 'Green 3',
+    email: 'green@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'John 4',
+    lastName: 'Tolkien 4',
+    email: 'tolkien@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'Clive 4',
+    lastName: 'Lewis 4',
+    email: 'lewis@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'Owen 4',
+    lastName: 'Barfield 4',
+    email: 'barfield@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'Charles 4',
+    lastName: 'Williams 4',
+    email: 'williams@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'Roger 4',
+    lastName: 'Green 4',
+    email: 'green@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'John 5',
+    lastName: 'Tolkien 5',
+    email: 'tolkien@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'Clive 5',
+    lastName: 'Lewis 5',
+    email: 'lewis@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'Owen 5',
+    lastName: 'Barfield 5',
+    email: 'barfield@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'Charles 5',
+    lastName: 'Williams 5',
+    email: 'williams@inklings.com',
+    phoneNumber: '867-5309'
+  },
+  {
+    id: getId(),
+    firstName: 'Roger 5',
+    lastName: 'Green 5',
+    email: 'green@inklings.com',
+    phoneNumber: '867-5309'
+  },
 ];
 
 export class WebAPI {
@@ -72,6 +177,17 @@ export class WebAPI {
             email: x.email
           }
         });
+        resolve(results);
+        this.isRequesting = false;
+      }, latency);
+    });
+  }
+
+  public  getContactListCount() {
+    this.isRequesting = true;
+    return new Promise<number>(resolve => {
+      setTimeout(() => {
+        const results = contacts.length;
         resolve(results);
         this.isRequesting = false;
       }, latency);

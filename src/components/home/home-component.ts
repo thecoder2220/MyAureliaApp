@@ -30,6 +30,7 @@ export class HomeComponent {
   created() {
     console.log("methode created dans classe Home Component exécutée ")
     this.api.getContactList().then(contacts => this.contacts = contacts);
+    this.api.getContactListCount().then(total => this.config.totalItems = total);
   }
 
   setPage(num) {
